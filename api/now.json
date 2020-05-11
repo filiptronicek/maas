@@ -1,0 +1,18 @@
+{
+    "functions": {
+      "api/index.php": {
+        "runtime": "now-php"
+      },
+      "api/redirect.js": {
+        "runtime": "now-node"
+      }
+    },
+    "routes": [
+      {
+        "src": "/api",
+        "headers": { "Access-Control-Allow-Origin": "true" }
+      }
+    ],
+    "cleanUrls": true
+    
+  }
