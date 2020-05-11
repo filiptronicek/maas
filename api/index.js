@@ -1,4 +1,3 @@
 module.exports = (req, res) => {
-    const { name = 'World' } = req.query;
-    res.status(200).send(`Hello ${name}!`);
+    res.status(200).send("https://s.put.re/PDeJX6eW.jpg");
   };
