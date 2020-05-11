@@ -1,10 +1,7 @@
 {
     "functions": {
       "api/index.php": {
-        "runtime": "now-php"
-      },
-      "api/redirect.js": {
-        "runtime": "now-node"
+        "runtime": "@now-php"
       }
     },
     "routes": [
