@@ -9,6 +9,5 @@
       "src": "/api",
       "headers": { "Access-Control-Allow-Origin": "true" }
     }
-  ],
-  "cleanurls": "true"
+  ]
 }
