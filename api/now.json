@@ -1,13 +1,10 @@
 {
   "functions": {
     "api/index.php": {
-      "runtime": "now-php@0.0.9"
+      "runtime": "now-php@0.0.10"
     }
   },
   "routes": [
-    {
-      "src": "/api",
-      "headers": { "Access-Control-Allow-Origin": "true" }
-    }
+    { "src": "/(.*)",  "dest": "/api/index.php" }
   ]
 }
