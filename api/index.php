@@ -1,8 +1,5 @@
 <?php
 
-//$subs = [];
-
-
 $fileName = "https://raw.githubusercontent.com/filiptronicek/maas/master/subreddits.txt";
 
 $subs = file($fileName);
