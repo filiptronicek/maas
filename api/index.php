@@ -2,24 +2,38 @@
 
 //$subs = [];
 
+
 $fileName = "https://raw.githubusercontent.com/filiptronicek/maas/master/subreddits.txt";
 
 $subs = file($fileName);
 
-$sub = $subs[array_rand($subs, 1)];
 
-$urlPath = 'https://meme-api.herokuapp.com/gimme/'.$sub;
+function getMeme(){
 
-//echo $urlPath;
+    try {
+        global $subs, $fileName;
 
-$url = file_get_contents($urlPath);
-$url = json_decode($url);
-$url = $url->url;
+        $sub = $subs[array_rand($subs, 1)];
 
-$data = file_get_contents($url);
+        $urlPath = 'https://meme-api.herokuapp.com/gimme/' . $sub;
+        $url = file_get_contents($urlPath);
+    
+        $url = json_decode($url);
+        $url = $url->url;
+    
+        $data = file_get_contents($url);
 
-$ext = explode(".", $url);
-$ext = end($ext);
+        if(!$data) {
+            getMeme();
+        }
+    } catch (Exception $e) {
+        getMeme();
+    } finally {
+        $ext = explode(".", $url);
+        $ext = end($ext);
 
-header("Content-type: image/" . $ext);
-echo $data;
+        header("Content-type: image/" . $ext);
+        echo $data;
+    }
+}
+getMeme();
