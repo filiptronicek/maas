@@ -2,13 +2,11 @@
 
 //$subs = [];
 
-$fileName = "./subreddits.txt";
+$fileName = "https://raw.githubusercontent.com/filiptronicek/maas/master/subreddits.txt";
 
 $subs = file($fileName);
 
 $sub = $subs[array_rand($subs, 1)];
-
-$sub = explode(',', $sub)[0];
 
 $urlPath = 'https://meme-api.herokuapp.com/gimme/'.$sub;
 

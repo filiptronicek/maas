@@ -1,5 +1,5 @@
-dankmemes,
-memes,
-PewdiepieSubmissions,
-blackpeopletwitter,
+dankmemes
+memes
+PewdiepieSubmissions
+blackpeopletwitter
 MemeEconomy
