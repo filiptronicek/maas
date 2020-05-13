@@ -10,7 +10,11 @@ function getMeme(){
     try {
         global $subs, $fileName;
 
-        $sub = $subs[array_rand($subs, 1)];
+        if(isset($_GET['r'])) {
+            $sub = $_GET['r'];
+        } else {
+            $sub = $subs[array_rand($subs, 1)];
+        }
 
         $urlPath = 'https://meme-api.herokuapp.com/gimme/' . $sub;
         $url = file_get_contents($urlPath);

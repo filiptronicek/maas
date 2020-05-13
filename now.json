@@ -5,6 +5,7 @@
     }
   },
   "routes": [
+    { "src": "/r/(?<id>[^/]*)", "dest": "/api/index?r=$id" },
     { "src": "/(.*)",  "dest": "/api/index.php" }
   ]
 }
