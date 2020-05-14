@@ -15,7 +15,7 @@ function getMeme(){
         } else {
             $sub = $subs[array_rand($subs, 1)];
         }
-        $sub = explode(" ", $sub)[0]
+        $sub = str_replace(" ","",$sub);
         $urlPath = 'https://meme-api.herokuapp.com/gimme/' . $sub;
         $url = file_get_contents($urlPath);
     
