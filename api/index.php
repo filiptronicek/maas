@@ -21,7 +21,7 @@ function getMeme(){
         */
             
         $urlPath = 'https://meme-api.herokuapp.com/gimme/' . $sub;
-        $urlPath = rawurlencode($urlPath)
+        $urlPath = rawurlencode($urlPath);
         $url = file_get_contents($urlPath);
     
         $url = json_decode($url);
