@@ -20,9 +20,9 @@ function getMeme(){
         $sub = preg_replace("/ /", "%20", $sub);
         */
             
-        $urlPath = 'https://meme-api.herokuapp.com/gimme/' . $sub;
-        $urlPath = str_replace(" ", "", $urlPath);
-        $url = file_get_contents($urlPath);
+        $urlPath = 'https://meme-api.herokuapp.com/gimme/'.$sub;
+        $rurlPath = str_replace(' ', '', $urlPath);
+        $url = file_get_contents(preg_replace('/\s+/', '', $urlPath));
     
         $url = json_decode($url);
         $url = $url->url;
@@ -30,14 +30,17 @@ function getMeme(){
         $data = file_get_contents($url);
 
         if(!$data) {
-            getMeme();
+            //getMeme();
         }
     } catch (Exception $e) {
-        getMeme();
+       // getMeme();
     } finally {
         $ext = explode(".", $url);
         $ext = end($ext);
-
+        /*
+        echo $urlPath;
+        echo '<br><img src="'.$url.'">';
+        */
         header("Content-type: image/" . $ext);
         echo $data;
     }
