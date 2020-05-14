@@ -41,6 +41,7 @@ function getMeme(){
         echo $urlPath;
         echo '<br><img src="'.$url.'">';
         */
+        header('R-subreddit: '.$sub);
         header("Content-type: image/" . $ext);
         echo $data;
     }
