@@ -8,4 +8,7 @@ Want an on-demand meme experience anywhere? Just send a request to [https://thc.
 * me_irl
 * Memes_Of_The_Dank
 
+## Providing your own subreddit
+https://thc.now.sh/r/dankememes for instance
+
 ![meme from the webpage](https://thc.now.sh/)
