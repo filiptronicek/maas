@@ -15,12 +15,23 @@ function getMeme(){
         } else {
             $sub = $subs[array_rand($subs, 1)];
         }
+        
+        if(isset($_GET['q'])) {
+            $quality = $_GET['q'];
+        } else {
+            $quality = "high";
+        }
             
         $urlPath = 'https://meme-api.herokuapp.com/gimme/'.$sub;
         $url = file_get_contents(preg_replace('/\s+/', '', $urlPath));
     
         $url = json_decode($url);
-        $url = $url->url;
+        if ($quality === "high") {
+            $url = $url->url;
+        } else {
+            //print_r($url->preview[0]);
+            $url = strval($url->preview[0]);
+        }
     
         $data = file_get_contents($url);
 
@@ -34,7 +45,11 @@ function getMeme(){
         $ext = end($ext);
 
         header('R-subreddit: '.$sub);
-        header("Content-type: image/" . $ext);
+        if ($quality === "high") { 
+            header("Content-type: image/" . $ext);
+        } else {
+            header("Content-type: image/webp");            
+        }
         echo $data;
     }
 }
